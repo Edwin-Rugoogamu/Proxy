@@ -1,0 +1,212 @@
+# You are contracted as the best software development team in Uganda,
+# to develop code for Refactory Uganda Limited, a computer manufacturing company.
+# The code you are to develop is for a Computer Manufacturing Simulation System,
+# which the Refactory team uses for presentations about there manufacturing operations.
+
+# The Refactory team decided that you will be developing the system in Phases,
+# following Agile software development methodologies and disciplines.
+# There are no pre-defined requirements for each phase, 
+# but each phase will come with a unique set of Functional Requirements
+# Based on the needs at that time.
+
+# Development Phase 1: Encapsulation
+  # Develop a software program in JavaScript/TypeScript/Python
+  # for a Computing System.
+  # The system should be able to input data from a keyboard,
+  # It should be able to to process data using the CPU
+  # It should be able to store data to Internal memory
+  # It should be able to output data / Information on a Monitor Screen.
+
+  Encapsulation:
+    
+    Computer: # Object
+
+      # Fields
+      brand: string
+      model: string
+
+      # Methods
+      input(): void
+        # Step1: Listen to data from keyboard
+        # Step2: Pick data from Keyboard
+        # Step3: Locate current cursor position
+        # Step4: Place data in the current cursor position
+        # Step5: Start Listening to data from keyboard
+
+      process(data, operation): boolean
+        # Step1: Receive data to be processed
+        # Step2: Receive operation to carry out on data received
+        # Step3: Prepare for operation
+        # Step4: Launch operation
+        # Step5: Send back signal representing the state of the operation
+
+      store(data): boolean
+        # Step1: Receive data to be stored
+        # Step2: Open Internal memory where data is to stored
+        # Step3: Prepare for data storage operation
+        # Step4: Launch storage operation
+        # Step5: Send back signal representing the state of the storage operation
+
+      output(data): void
+        # Step1: Receive data to be output
+        # Step2: Open monitor where data is to displayed
+        # Step3: Prepare for data output operation
+        # Step4: Launch output operation
+        # Step5: Send back signal representing the state of the output operation
+
+# Development Phase 2: Inheritance
+  # Congratulations for having successfully developed code for a generic Computer system.
+  # Your work was much appreciated and hence your contract extended to allow you develop
+  # more features for the same system
+
+  # New Requirements
+    # Your are required to develop code for a laptop computer and a desktop computer.
+    # Both should behave exactly like the Generic Computer System developed in Phase 1, 
+    # however: The laptop computer should be foldable with the fold() method.
+
+  Desktop: <- Computer
+    # Fields
+    # Methods
+
+  Laptop: <- Computer
+    # Fields
+    # Methods
+      fold()
+
+# Development Phase 3: Abstraction
+  # You are still on top of your Game, keep the fire burning.
+
+  # New Requirements
+    # A new Manufacturing Policy has been passed for the Computer Manufacturing industry,
+    # And based on the new policy, there is no more room for manufacturing 
+    # Generic computers that are not distinctive.
+    # For what so ever computer manufacutured, it should either be a Desktop computer,
+    # or a Laptop computer, #Period.
+
+  Hints:
+    - Make the generic Computer class Abstract:
+      - It should'nt be instantiatable.
+      - It should contain only fields, methods & behaviors
+        which are universally shared by all computer (Sub) Types.
+      - It can as well contain abstract methods which must be
+        implemented by each and every computer (Sub) Type.
+
+    - Make the Desktop class Concrete:
+      - It should be instantiatable
+      - It inherits all behaviors from the generic computer class.
+      - It should define any abstract methods defined in the Super class Computer
+
+    - Make the Laptop class Concrete: 
+      - It should be instantiatable
+      - It inherits all behaviors from the generic computer class.
+      - It should define any abstract methods defined in the Super class Computer
+
+# Development Phase 4: Polymorphism:
+
+  # New Requirements: Set 1
+    # The Company (Refactory) recently conducted market research, and discovered that,
+    # there is a very high demand for Walltop computers 
+    # which is a new Type of computers on the market.
+    # The Walltop computers behave like any other computer, except with a few variations.
+    # They leverage the screen touch technology for data input,
+    # and they have there own way of processing data.
+      Hint: Implement Method Overriding
+
+  # New Requirements: Set 2: 
+    # Till now, the company is serving clients who are Type-based,
+    # i.e. Laptop clients only order for Laptops, 
+    # Desktop clients only order for Desktops, and the same applies for Walltop clients.
+    # However, the company recently started receiving orders from clients 
+    # willing to order and stock more than one computer types.
+    # The company decided to twick their delivery model a bit to soot this new requirement.
+    # Now the company wants you to incoporating a new feature into the simulation system,
+    # to match the new delivery model
+
+      Hint: Subtyping Polymorphism, Programming to Abstraction not Implementation
+
+
+# Development Phase 5: Composition:
+
+  # New Requirements
+    # Its time to think about security features and personalization provision for our system.
+    # You are required to add a User Account feature to the Computer.
+
+
+# Development Phase 6: Violation of SOLID:
+
+  # New Requirements
+    # The company now wants for every computer to have multiple ways of 
+    # inputing, processing, storing and Outputing. These multiple ways are highlighted below.
+
+      # Desktop and Laptop can input data in the following ways:
+        # Using a keyboard
+        # Using a mouse
+
+      # Each Computer can now acommodate more that one processor chips, 
+        # but only one can be used at a time, and below are the only acceptable processor brands:
+          # Intel
+          # AMD
+          # NVIDIA
+
+      # Computers can now store data in the following ways.
+        # All computers can store data in internal Memory
+        # Desktops and Laptops can now store Data on External Devices like SSD devices
+      
+      # Computers can now output data in the following ways.
+        # All computers can output data on their own screens
+        # Desktops and Laptops can project data on Projectors
+
+# Development Phase 7: Implementation of SOLID:
+  # Make the code resilint to change as much as you can.
+    # Refactor code to ensure that all classes and relationships in the code conform to the SOLID principles
+
+
+# Development Phase 8: The Singleton Pattern:
+  # Its time to implement the User Management Feature. Implement this feeature in such a way that:
+    # A computer allows for creation of a User Acount
+    # If a computer has user accounts, then it can only be used if there is a user logged in.
+    # A computer allows for logging in by a user
+    # A computer provides for logging out a user
+    # Most Importantly: there can only be one loggedIn user at a time.
+      # I.e. if there is a loggedin user, he/she must be signed out before any other user can login
+
+1. Extraction
+2. Encapsulation
+  - SRP
+3. Composition
+4. Delegation
+--
+5. Dedendance Inversion Principle
+6. Dependancy Injection Principle
+  - Parameterizing a Constructor
+  - Getters and Setter
+
+7. Interface Segregation Principle
+
+
+
+
+# LSP
+# ISP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

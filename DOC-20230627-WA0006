@@ -1,0 +1,180 @@
+from abc import ABC, abstractmethod
+
+class User():
+    def __init__(self):
+        self.username = 'johndoe'
+        self.password = 'password'
+
+class ProcessorChip(ABC):
+    @abstractmethod
+    def process(self, data):
+        pass
+
+class Intel(ProcessorChip):
+    def process(self, data):
+        print("---- Proceessing using Intel Chip ------------------")
+        print("") # Empty Print statement at end of every method
+
+class AMD(ProcessorChip):
+    def process(self, data):
+        print("---- Proceessing using AMD Chip ------------------")
+        print("") # Empty Print statement at end of every method
+
+class INVIDIA(ProcessorChip):
+    def process(self, data):
+        print("---- Proceessing using Invidia Chip ------------------")
+        print("") # Empty Print statement at end of every method
+
+class InputDevice(ABC):
+        @abstractmethod
+        def input(self, data):
+            pass
+
+class KeyBoard(InputDevice):
+    def input(self,data):
+        print("---- Inputing data from keyboard ------------------")
+        print("Step1: Listen to data from keyboard")
+        print("Step2: Pick data from Keyboard")
+        print("Step3: Locate current cursor position")
+        print("Step4: Place data in the current cursor position")
+        print("Step5: Start Listening to data from keyboard")
+        print("") # Empty Print statement at end of every method
+
+class Mouse(InputDevice):
+    def input(seld, data):
+        print("---- Inputing data from mouse ------------------")
+        print("Step1: Listen to data from mouse")
+        print("Step2: Pick data from mouse")
+        print("Step3: Locate current cursor position")
+        print("Step4: Place data in the current cursor position")
+        print("Step5: Start Listening to data from mouse")
+        print("") # Empty Print statement at end of every method
+    
+class StorageDevice(ABC):
+        @abstractmethod
+        def store(self, data):
+            pass
+
+class InternalMemory(StorageDevice):
+    def store(self,data):
+        print("---- Storing data in internal memory -------------------")
+        print("Step1: Receive data to be stored")
+        print("Step2: Open Internal memory where data is to stored")
+        print("Step3: Prepare for data storage operation")
+        print("Step4: Launch storage operation")
+        print("Step5: Send back signal representing the state of the storage operation")
+        print("") # Empty Print statement at end of every method
+        #return True
+
+class SSD(StorageDevice):
+    def store(self, data):
+        print("---- Storing data on SSD -------------------")
+        print("Step1: Receive data to be stored")
+        print("Step2: Open Internal memory where data is to stored")
+        print("Step3: Prepare for data storage operation")
+        print("Step4: Launch storage operation")
+        print("Step5: Send back signal representing the state of the storage operation")
+        print("") # Empty Print statement at end of every method
+        #return True
+
+class OutputDevice(ABC):
+        @abstractmethod
+        def output(self, data):
+            pass
+
+class Monitor(OutputDevice):
+    def output(self,data):
+        print("---- Displaying data from Monitor ------------------")
+        print("") # Empty Print statement at end of every method
+
+class Projector(OutputDevice):
+    def output(self, data):
+        print("---- Displaying data from Projector ------------------")
+        print("") # Empty Print statement at end of every method
+    
+class Computer(ABC):
+
+    def __init__(self, processor_chip, input_device, storage_device, output_device):
+        # Fields
+        self.brand = ""
+        self.model = ""
+        self.user = User()
+        self.processor_chip = processor_chip
+        self.input_device = input_device
+        self.storage_device = storage_device
+        self.output_device = output_device
+
+    # Methods
+    def input(self, data):
+        self.input_device.input(data)
+        
+    def process(self, data):
+        self.processor_chip.process(data)
+    
+    def store(self, data):
+        self.storage_device.store(data)
+    
+    def output(self, data):
+        self.output_device.output(data)
+
+
+# Inheritance: Desktop is inheriting from Computer
+class Desktop(Computer):
+    # Fields
+    pass
+
+    # Methods
+
+# Inheritance: Laptop is inheriting from Computer
+class Laptop(Computer):
+    # Fields
+    # Methods
+    pass
+
+    def fold(self):
+        print("-----------Folding Process ----------")
+        print("Step1: Folding")
+        print("")
+
+# Inheritance: Walltop is inheriting from Computer
+class Walltop(Computer):
+    pass
+
+    # Fields
+
+    # Methods
+    # Method Overriding
+
+
+
+
+
+computer = Desktop(Intel(), KeyBoard(), InternalMemory(), Projector())
+computer.input('s')
+computer.store('mmm')
+computer.output('kkkk')
+computer.process('llll')
+
+computer = Laptop(INVIDIA(), Mouse(), SSD(), Monitor())
+computer.input('s')
+computer.store('n')
+computer.output('kkkk')
+computer.process('llll')
+
+computer = Walltop(AMD(), KeyBoard(), InternalMemory(), Projector())
+computer.process('s')
+computer.input('s')
+computer.store('n')
+computer.output('kkkk')
+
+
+
+
+
+# my_laptop = Laptop()
+# my_laptop.input()
+# my_laptop.process(12, "hop")
+# my_laptop.store("one")
+# my_laptop.output()
+# my_laptop.fold()
+
